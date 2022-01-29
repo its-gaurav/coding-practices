@@ -40,14 +40,14 @@ class Solution {
             if(stack.isEmpty() || heights[i]>=heights[stack.peek()]){
                 stack.add(i++);
             }else{
-                int index = stack.pop();
-                int area = heights[index] * (stack.isEmpty() ? i : (i - 1 - stack.peek()));
+                int tp = stack.pop();
+                int area = heights[tp] * (stack.isEmpty() ? i : (i - 1 - stack.peek()));
                 maxArea = Math.max(area, maxArea);
             }
         }
         while(!stack.isEmpty()){
-            int index = stack.pop();
-                int area = heights[index] * (stack.isEmpty() ? i : (i - 1 - stack.peek()));
+            int tp = stack.pop();
+                int area = heights[tp] * (stack.isEmpty() ? i : (i - 1 - stack.peek()));
                 maxArea = Math.max(area, maxArea);
         }
         
