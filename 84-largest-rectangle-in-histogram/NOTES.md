@@ -1,1 +1,4 @@
-​
+Two key points that I found helpful while understanding the solution:
+
+1. When a bar is popped, we calculate the area with the popped bar at index tp as shortest bar. Now we know the rectangle height is heights[tp], we just need rectangle width to calculate the area.
+2. How to determine rectangle width? The maximum width we can have here would be made of all connecting bars with height greater than or equal to heights[tp]. heights[s.peek() + 1] >= heights[tp] because the index on top of the stack right now s.peek() is the first index left of tp with height smaller than tp's height (if s.peek() was greater then it should have already been poped out of the stack). heights[i - 1] >= heights[tp] because index i is the first index right of tp with height smaller than tp's height (if i was greater then tp would have remained on the stack). Now we multiply height heights[tp] by width i - 1 - s.peek() to get the area.
